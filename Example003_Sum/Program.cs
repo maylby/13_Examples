@@ -121,6 +121,42 @@
 
 // * Трениролвочная задача
 
+// string text = "- Я думаю, - сказал князь, улыбаясь, - что, "
+// + "ежели бы вас послали вместо нашего милого Винцегероде, "
+// + "вы бы взяли приступом согласие русского короляб. "
+// + "Вы так красноречивы. Вы дадите мне чаю?";
+
+// string Replase(string text, char oldValue, char newValue)
+// {
+// 	string result = string.Empty;
+// 	int length = text.Length;
+// 	for (int i = 0; i < length; i++)
+// 	{
+// 		if(text[i] == oldValue) result = result + $"{newValue}";
+// 		else result = result + $"{text}";
+// 	}
+// 	return result;
+// }
+
+// string newText = Replase(text, ' ', '|');
+// Console.WriteLine(newText);
+// Console.WriteLine();
+// newText = Replase(text, 'к', 'К');
+// Console.WriteLine(newText);
+// Console.WriteLine();
+// newText = Replase(text, 'С', 'с');
+// Console.WriteLine(newText);
+// Console.WriteLine();
+
+// !!! - Код данной задачи сработал не корректно.
+// !!! - Вместо выполнения прописанных команд, многократно множит текст
+// !!! - Частично был скопирован с текстом из PDF-файла презентации к лекции
+// !!! - После чего, в тексте появились некие команды, которых я не писал
+// !!! - По сути, мешали писать код, внося не нужные правки.
+// !!! - Сначала закрыл команды слешами, позже удалил.
+
+
+
 
 // Сложение двух целых чисел
 
