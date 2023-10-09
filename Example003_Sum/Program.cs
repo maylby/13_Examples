@@ -84,6 +84,24 @@
 // выделяем её имя, правой кнопкой вызываем панель, выбираем строку "Rename Symbol"
 
 
+// 0:15:00
+
+// Цикл "for"
+
+// string Method4(int count, string text) 
+// {
+//     string result = String.Empty; // "String.Empty"- "Пустая Строка"; можно написать "0", но так не принято
+//     for(int i = 0; i < count; i++)
+//     {
+//         result = result + text;
+//     }
+//     return result; // в операторе "return" указываем имя переменной "result"
+// }
+// string res = Method4(10, "z");
+// Console.WriteLine(res);
+
+
+
 // Сложение двух целых чисел
 
 // int numbrerA = 3;
