@@ -8,24 +8,24 @@
 
 // Код:
 
-string NumbersFor(int a, int b)
-{
-    string result = String.Empty;
-    for (int i = 0; i <= b; i++)
-    {
-        result += $"{i} ";
-    }
-    return result;
-}
+// string NumbersFor(int a, int b)
+// {
+//     string result = String.Empty;
+//     for (int i = 0; i <= b; i++)
+//     {
+//         result += $"{i} ";
+//     }
+//     return result;
+// }
 
-string NumbersRec(int a, int b)
-{
-    if (a <= b) return $"{a} " + NumbersRec(a + 1, b);
-    else return String.Empty;
-}
+// string NumbersRec(int a, int b)
+// {
+//     if (a <= b) return $"{a} " + NumbersRec(a + 1, b);
+//     else return String.Empty;
+// }
 
-System.Console.WriteLine(NumbersFor(1, 10)); // 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
-System.Console.WriteLine(NumbersRec(1, 10)); // 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+// System.Console.WriteLine(NumbersFor(1, 10)); // 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+// System.Console.WriteLine(NumbersRec(1, 10)); // 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
 
 
 // 00:06:30
@@ -34,21 +34,61 @@ System.Console.WriteLine(NumbersRec(1, 10)); // 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
 
 // Код:
 
-string NumbersFor(int a, int b)
+// string NumbersFor(int a, int b)
+// {
+//     string result = String.Empty;
+//     for (int i = 0; i >= b; i--) // Меняем "<=" на ">=" и "i++" на "i--"
+//     {
+//         result += $"{i} ";
+//     }
+//     return result;
+// }
+
+// string NumbersRec(int a, int b)
+// {
+//     if (a <= b) return NumbersRec(a + 1, b) + $"{a} "; // Здесь, метод "NumbersRec" ставим впереди
+//     else return String.Empty;
+// }
+
+// System.Console.WriteLine(NumbersFor(1, 10)); // 10, 9, 8, 7, 6, 5, 4, 3, 2, 1
+// System.Console.WriteLine(NumbersRec(1, 10)); // 10, 9, 8, 7, 6, 5, 4, 3, 2, 1
+
+
+// 00:07:00
+// Сумма чисел от 1 до N
+
+int SumFor(int n)
 {
-    string result = String.Empty;
-    for (int i = 0; i >= b; i--) // Меняем "<=" на ">=" и "i++" на "i--"
-    {
-        result += $"{i} ";
-    }
+    int result = 0;
+    for (int i = 1; i <= n; i++) result += i;
     return result;
 }
 
-string NumbersRec(int a, int b)
+int SumRec(int n)
 {
-    if (a <= b) return NumbersRec(a + 1, b) + $"{a} "; // Здесь, метод "NumbersRec" ставим впереди
-    else return String.Empty;
+    if (n == 0) return 0;
+    else return n + SumRec(n - 1);
 }
 
-System.Console.WriteLine(NumbersFor(1, 10)); // 10, 9, 8, 7, 6, 5, 4, 3, 2, 1
-System.Console.WriteLine(NumbersRec(1, 10)); // 10, 9, 8, 7, 6, 5, 4, 3, 2, 1
+System.Console.WriteLine(SumFor(10)); // 55
+System.Console.WriteLine(SumRec(10)); // 55
+
+
+// 00:08:00
+// Факториал числа
+
+int FactorialFor(int n)
+{
+    int result = 1;
+    for (int i = 1; i <= n; i++) result *= i;
+    return result;
+}
+int FactorialRec(int n)
+{
+    if (n == 1) return 1;
+    else return n * FactorialRec(n - 1);
+}
+
+System.Console.WriteLine(FactorialFor(10)); // 3628800
+System.Console.WriteLine(FactorialRec(10)); // 3628800
+
