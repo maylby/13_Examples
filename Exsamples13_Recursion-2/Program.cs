@@ -145,6 +145,7 @@
 
 // // Общее решение задачи перебора слов
 
+// int n = 1;
 // void FindWords(string alphabet, char[] word, int length = 0)
 // {
 //     if (length == word.Length)
@@ -156,6 +157,7 @@
 //         word[length] = alphabet[i];
 //         FindWords(alphabet, word, length + 1);
 //     }
+//     System.Console.WriteLine();
 // }
 
-// FindWords(abcd, new char[5]);
+// FindWords("abcd", new char[3]);
