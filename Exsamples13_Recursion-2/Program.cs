@@ -121,3 +121,22 @@
 // System.Console.WriteLine(PowerRecMath(2, 10));
 
 
+// 00:12:00
+// Перебор слов
+
+char[] s = { 'a', 'b', 'c', 'd'};
+int count = s.Length;
+int n = 1;
+for (int i = 0; i < count; i++)
+{
+    for (int j = 0; j < count; j++)
+    {
+        for (int k = 0; k < count; k++)
+        {
+            for (int l = 0; l < count; l++)
+            {
+                System.Console.WriteLine($"{n++,-5}{s[i]}{s[j]}{s[k]{s[l]}}");
+            }
+        }
+    }
+}
