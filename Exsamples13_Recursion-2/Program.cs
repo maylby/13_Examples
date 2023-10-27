@@ -57,38 +57,54 @@
 // 00:07:00
 // Сумма чисел от 1 до N
 
-int SumFor(int n)
-{
-    int result = 0;
-    for (int i = 1; i <= n; i++) result += i;
-    return result;
-}
+// int SumFor(int n)
+// {
+//     int result = 0;
+//     for (int i = 1; i <= n; i++) result += i;
+//     return result;
+// }
 
-int SumRec(int n)
-{
-    if (n == 0) return 0;
-    else return n + SumRec(n - 1);
-}
+// int SumRec(int n)
+// {
+//     if (n == 0) return 0;
+//     else return n + SumRec(n - 1);
+// }
 
-System.Console.WriteLine(SumFor(10)); // 55
-System.Console.WriteLine(SumRec(10)); // 55
+// System.Console.WriteLine(SumFor(10)); // 55
+// System.Console.WriteLine(SumRec(10)); // 55
 
 
-// 00:08:00
-// Факториал числа
+// // 00:08:00
+// // Факториал числа
 
-int FactorialFor(int n)
-{
-    int result = 1;
-    for (int i = 1; i <= n; i++) result *= i;
-    return result;
-}
-int FactorialRec(int n)
-{
-    if (n == 1) return 1;
-    else return n * FactorialRec(n - 1);
-}
+// int FactorialFor(int n)
+// {
+//     int result = 1;
+//     for (int i = 1; i <= n; i++) result *= i;
+//     return result;
+// }
+// int FactorialRec(int n)
+// {
+//     if (n == 1) return 1; // <- условие выхода из рекурсии -> N = 1
+//     else return n * FactorialRec(n - 1);
+// }
 
-System.Console.WriteLine(FactorialFor(10)); // 3628800
-System.Console.WriteLine(FactorialRec(10)); // 3628800
+// System.Console.WriteLine(FactorialFor(10)); // 3628800
+// System.Console.WriteLine(FactorialRec(10)); // 3628800
 
+
+// // 00:09:00
+// // Вычислить "a" в степени "n"
+
+// int PowerFor(int a, int n)
+// {
+//     int result = 1;
+//     for (int i = 1; i <= n; i++) result *= a;
+//     return result;
+// }
+
+// int PowerRec(int a, int n)
+// {   // return n == 0 ? 1 : PowerRec(a, n - 1) * a; // <- вариант записи в одну строку
+//     if (n == 0) return 1;
+//     else return PowerRec(a, n - 1) * a;
+// }
