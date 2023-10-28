@@ -144,6 +144,7 @@
 // // 00:16:00
 
 // // Общее решение задачи перебора слов
+// Рекурсия избавляет от привязки к количеству циклов, набираемых руками
 
 // int n = 1;
 // void FindWords(string alphabet, char[] word, int length = 0)
@@ -160,4 +161,4 @@
 //     System.Console.WriteLine();
 // }
 
-// FindWords("abcd", new char[3]);
+// FindWords("abcde", new char[3]); // для изменения длины слова меняем число в "char"
