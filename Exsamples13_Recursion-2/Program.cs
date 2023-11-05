@@ -8,24 +8,32 @@
 
 // Код:
 
-// string NumbersFor(int a, int b)
+// string NumbersFor(int a, int b) // Итеративный подход (01)
 // {
-//     string result = String.Empty;
-//     for (int i = 0; i <= b; i++)
+//     string result = String.Empty; // "пустая строка" для записи
+//     for (int i = a; i <= b; i++) // перебор от "a" до "b" с увеличением счётчика на единицу
 //     {
-//         result += $"{i} ";
+//         result += $"{i} "; // запись очередного значения, в случае выполнения условия ("for")
 //     }
-//     return result;
+//     return result; // в противном случае, возврат прежних значений
 // }
 
-// string NumbersRec(int a, int b)
+// string NumbersRec(int a, int b) // Рекурсивный подход (02)
 // {
-//     if (a <= b) return $"{a} " + NumbersRec(a + 1, b);
-//     else return String.Empty;
+//     if (a <= b) return $"{a} " + NumbersRec(a + 1, b); 
+//     // возврат значений от "a" до "b", где каждое следующее значение "а" больше на единицу
+//     else return String.Empty; // возврат "пустой строки", при невыполнении условия (a <= b)
 // }
 
-// System.Console.WriteLine(NumbersFor(1, 10)); // 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
-// System.Console.WriteLine(NumbersRec(1, 10)); // 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+// string NumbersRec2(int a, int b) // (06:10) уменьшение на единицу числа вызов рекурсии (03)
+// {
+//     if (a > b) return String.Empty;
+//     else return $"{a}, " + NumbersRec2(a + 1, b);
+// }
+
+// System.Console.WriteLine(NumbersFor(1, 10)); // 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 <- (01)
+// System.Console.WriteLine(NumbersRec(1, 10)); // 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 <- (02)
+// System.Console.WriteLine(NumbersRec2(1, 10)); // 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 <- (03)
 
 
 // 00:06:30
@@ -34,24 +42,26 @@
 
 // Код:
 
-// string NumbersFor(int a, int b)
+// string NumbersForRevers(int a, int b)
 // {
 //     string result = String.Empty;
-//     for (int i = 0; i >= b; i--) // Меняем "<=" на ">=" и "i++" на "i--"
+//     for (int i = a; i >= b; i--) // Меняем "<=" на ">=" и "i++" на "i--"
 //     {
 //         result += $"{i} ";
 //     }
 //     return result;
 // }
 
+
 // string NumbersRec(int a, int b)
 // {
-//     if (a <= b) return NumbersRec(a + 1, b) + $"{a} "; // Здесь, метод "NumbersRec" ставим впереди
+//     if (a <= b) return NumbersRec(a + 1, b) + $"{a} "; // метод "NumbersRec" ставим впереди
 //     else return String.Empty;
 // }
 
-// System.Console.WriteLine(NumbersFor(1, 10)); // 10, 9, 8, 7, 6, 5, 4, 3, 2, 1
+// System.Console.WriteLine(NumbersForRevers(1, 10)); // 10, 9, 8, 7, 6, 5, 4, 3, 2, 1
 // System.Console.WriteLine(NumbersRec(1, 10)); // 10, 9, 8, 7, 6, 5, 4, 3, 2, 1
+
 
 
 // 00:07:00
@@ -148,12 +158,16 @@
 
 // int n = 1;
 // void FindWords(string alphabet, char[] word, int length = 0)
+// // "void FindWords" - метод, принимающий алфавит
+// // "string alphabet" - строка, куда будет производится запись
+// // "char[] word" - массив из букв, составляющих новое слово
+// // "int length" - длина слова на текущей итерации
 // {
-//     if (length == word.Length)
+//     if (length == word.Length) // Условие выхода: длина слова совпала с указанным значением
 //     {
-//         System.Console.WriteLine($"{n++} {new String(word)}"); return;
+//         System.Console.WriteLine($"{n++} {new String(word)}"); return; // вывод слова
 //     }
-//     for (int i = 0; i < alphabet.Length; i++)
+//     for (int i = 0; i < alphabet.Length; i++) // Цикл сбора нового слова, по заданным буквам
 //     {
 //         word[length] = alphabet[i];
 //         FindWords(alphabet, word, length + 1);
@@ -161,4 +175,11 @@
 //     System.Console.WriteLine();
 // }
 
-// FindWords("abcde", new char[3]); // для изменения длины слова меняем число в "char"
+// FindWords("abcde", new char[3]); // для изменения длины слова меняем значение в "char"
+
+// // System.Console.Write("Input length: ");
+// // int word = Convert.ToInt32(Console.ReadLine());
+// // System.Console.Write("Input letters: ");
+// // string alphabet = new String(" "); // Как изменить выражение для ввода букв в "Input letters"?
+
+// // FindWords(alphabet, new char[word]);
