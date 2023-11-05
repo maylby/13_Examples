@@ -31,8 +31,8 @@
 //     else return $"{a}, " + NumbersRec2(a + 1, b);
 // }
 
-// System.Console.WriteLine(NumbersFor(1, 10)); // 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 <- (01)
-// System.Console.WriteLine(NumbersRec(1, 10)); // 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 <- (02)
+// // System.Console.WriteLine(NumbersFor(1, 10)); // 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 <- (01)
+// // System.Console.WriteLine(NumbersRec(1, 10)); // 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 <- (02)
 // System.Console.WriteLine(NumbersRec2(1, 10)); // 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 <- (03)
 
 
