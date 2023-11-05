@@ -207,22 +207,34 @@
 
 // Рекурсия для перемещения по папкам
 
-void CatalogInfo(string path, string index = "")
+// void CatalogInfo(string path, string index = "")
+// {
+//     DirectoryInfo catalog = new DirectoryInfo(path);
+
+//     DirectoryInfo[] catalogs = catalog.GetDirectories();
+//     for (int i = 0; i < catalogs.Length; i++)
+//     {
+//         System.Console.WriteLine($"{index}{catalogs[i].Name}");
+//         CatalogInfo(catalogs[i].FullName, index + " ");
+//     }
+//     FileInfo[] files = catalog.GetFiles();
+
+//     for (int i = 0; i < files.Length; i++)
+//     {
+//         System.Console.WriteLine($"{index}{files[i].Name}");
+//     }
+// }
+// string path = @"/Users/Vitaliy/GeekBrains/13_Examples/Example001_HelloConsole"; 
+// CatalogInfo(path);
+
+
+// 00:27:00
+// "Ханойские башни"
+
+void Towers(string with = "1", string on = "3", string some = "2", int count = 4)
 {
-    DirectoryInfo catalog = new DirectoryInfo(path);
-
-    DirectoryInfo[] catalogs = catalog.GetDirectories();
-    for (int i = 0; i < catalogs.Length; i++)
-    {
-        System.Console.WriteLine($"{index}{catalogs[i].Name}");
-        CatalogInfo(catalogs[i].FullName, index + " ");
-    }
-    FileInfo[] files = catalog.GetFiles();
-
-    for (int i = 0; i < files.Length; i++)
-    {
-        System.Console.WriteLine($"{index}{files[i].Name}");
-    }
+    if (count > 1) Towers(with, some, on, count - 1);
+    System.Console.WriteLine($"{with} >> {on}");
+    if (count > 1) Towers(some, on, with, count - 1);
 }
-string path = @"/Users/Vitaliy/GeekBrains/13_Examples/Example001_HelloConsole"; 
-CatalogInfo(path);
+Towers();
