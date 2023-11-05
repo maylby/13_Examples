@@ -177,10 +177,52 @@
 //     System.Console.WriteLine();
 // }
 
-// FindWords("abcd", new char[3]); Буквы и длина слова заданы заранее
+// // FindWords("abcd", new char[3]); Буквы и длина слова заданы заранее
 
-// System.Console.Write("Input length: "); Консоль ввода длины слова
+// System.Console.Write("Input length: "); // ввод длины слова
 // int word = Convert.ToInt32(Console.ReadLine());
-// System.Console.Write("Input letters: "); // Консоль ввода букв, составлющих слово
+// System.Console.Write("Input letters: "); // ввода набора букв, составлющих слово
 // string alphabet = Console.ReadLine(); 
 // FindWords(alphabet, new char[word]);
+
+
+// 00:20:00
+
+// Директория
+// Вызов даты и времени создания объекта, просмотр содержимого
+
+// string path = "C:/Users/Vitaliy/GeekBrains/13_Examples/Example001_HelloConsole"; // путь к папке
+// DirectoryInfo di = new DirectoryInfo(path);
+// System.Console.WriteLine(di.CreationTime);
+// FileInfo[] fi = di.GetFiles(); // при наведении курсора на "GetFiles" всплывает доп. информация
+// // Данная конструкция позволяет просмотреть файлы и папки в указанной папке
+
+// for (int i = 0; i < fi.Length; i++)
+// {
+//     System.Console.WriteLine(fi[i].Name); // <- вызов конкретного элемента массива ("fi[i]"), 
+//     // с нужными нам свойствами, например, "Name" (имя)
+// }
+
+// 00:23:00
+
+// Рекурсия для перемещения по папкам
+
+void CatalogInfo(string path, string index = "")
+{
+    DirectoryInfo catalog = new DirectoryInfo(path);
+
+    DirectoryInfo[] catalogs = catalog.GetDirectories();
+    for (int i = 0; i < catalogs.Length; i++)
+    {
+        System.Console.WriteLine($"{index}{catalogs[i].Name}");
+        CatalogInfo(catalogs[i].FullName, index + " ");
+    }
+    FileInfo[] files = catalog.GetFiles();
+
+    for (int i = 0; i < files.Length; i++)
+    {
+        System.Console.WriteLine($"{index}{files[i].Name}");
+    }
+}
+string path = @"/Users/Vitaliy/GeekBrains/13_Examples/Example001_HelloConsole"; 
+CatalogInfo(path);
