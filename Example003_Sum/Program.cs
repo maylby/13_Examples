@@ -90,7 +90,7 @@
 
 // string Method4(int count, string text) 
 // {
-//     string result = String.Empty; // "String.Empty"- "Пустая Строка"; можно написать "0", но так не принято
+//     string result = String.Empty; // "String.Empty"- "Пустая Строка"
 //     for(int i = 0; i < count; i++)
 //     {
 //         result = result + text;

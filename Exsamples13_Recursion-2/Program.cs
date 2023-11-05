@@ -31,8 +31,8 @@
 //     else return $"{a}, " + NumbersRec2(a + 1, b);
 // }
 
-// // System.Console.WriteLine(NumbersFor(1, 10)); // 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 <- (01)
-// // System.Console.WriteLine(NumbersRec(1, 10)); // 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 <- (02)
+// System.Console.WriteLine(NumbersFor(1, 10)); // 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 <- (01)
+// System.Console.WriteLine(NumbersRec(1, 10)); // 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 <- (02)
 // System.Console.WriteLine(NumbersRec2(1, 10)); // 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 <- (03)
 
 
@@ -42,41 +42,40 @@
 
 // Код:
 
-// string NumbersForRevers(int a, int b)
+// string NumbersFor(int a, int b) // Итеративный подход (01)
 // {
 //     string result = String.Empty;
 //     for (int i = a; i >= b; i--) // Меняем "<=" на ">=" и "i++" на "i--"
 //     {
-//         result += $"{i} ";
+//         result += $"{i}, "; // (???) Не выводит на экран!
 //     }
 //     return result;
 // }
 
-
-// string NumbersRec(int a, int b)
+// string NumbersRec(int a, int b) // Рекурсивный подход (02)
 // {
 //     if (a <= b) return NumbersRec(a + 1, b) + $"{a} "; // метод "NumbersRec" ставим впереди
 //     else return String.Empty;
 // }
 
-// System.Console.WriteLine(NumbersForRevers(1, 10)); // 10, 9, 8, 7, 6, 5, 4, 3, 2, 1
-// System.Console.WriteLine(NumbersRec(1, 10)); // 10, 9, 8, 7, 6, 5, 4, 3, 2, 1
+// System.Console.WriteLine(NumbersFor(1, 10)); // 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 <- (01)
+// System.Console.WriteLine(NumbersRec(1, 10)); // 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 <- (02)
 
 
 
 // 00:07:00
 // Сумма чисел от 1 до N
 
-// int SumFor(int n)
+// int SumFor(int n) // Итеративный подход (01)
 // {
 //     int result = 0;
 //     for (int i = 1; i <= n; i++) result += i;
 //     return result;
 // }
 
-// int SumRec(int n)
+// int SumRec(int n) // Рекурсивный подход (02)
 // {
-//     if (n == 0) return 0;
+//     if (n == 0) return 0; // или, при "(n == 1) return 1", на один вызов рекурсии меньше 
 //     else return n + SumRec(n - 1);
 // }
 
@@ -95,8 +94,10 @@
 // }
 // int FactorialRec(int n)
 // {
-//     if (n == 1) return 1; // <- условие выхода из рекурсии -> N = 1
+//     if (n == 1 || n == 0) return 1; // <- условие выхода из рекурсии -> N = 1 или N = 0
+//     // в условии следует указать, что факториал числа "0" тоже равен единице
 //     else return n * FactorialRec(n - 1);
+//     // возврат произведения "n" на число, меньше "n" на единицу
 // }
 
 // System.Console.WriteLine(FactorialFor(10)); // 3628800
@@ -123,7 +124,8 @@
 // {
 //     if (n == 0) return 1;
 //     else if (n % 2 == 0) return PowerRecMath(a * a, n / 2);
-//     else return PowerRecMath(a, n - 1) * a;
+//     // при чётном показателе степени, число умножаем на себя, уменьшая в два раза показатель степени
+//     else return PowerRecMath(a, n - 1) * a; // иначе, 
 // }
 
 // System.Console.WriteLine(PowerFor(2, 10)); // 1024
@@ -175,11 +177,10 @@
 //     System.Console.WriteLine();
 // }
 
-// FindWords("abcde", new char[3]); // для изменения длины слова меняем значение в "char"
+// FindWords("abcd", new char[3]); Буквы и длина слова заданы заранее
 
-// // System.Console.Write("Input length: ");
-// // int word = Convert.ToInt32(Console.ReadLine());
-// // System.Console.Write("Input letters: ");
-// // string alphabet = new String(" "); // Как изменить выражение для ввода букв в "Input letters"?
-
-// // FindWords(alphabet, new char[word]);
+// System.Console.Write("Input length: "); Консоль ввода длины слова
+// int word = Convert.ToInt32(Console.ReadLine());
+// System.Console.Write("Input letters: "); // Консоль ввода букв, составлющих слово
+// string alphabet = Console.ReadLine(); 
+// FindWords(alphabet, new char[word]);
