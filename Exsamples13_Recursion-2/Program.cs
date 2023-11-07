@@ -153,10 +153,10 @@
 //     }
 // }
 
-// // 00:16:00
+// // // 00:16:00
 
-// // Общее решение задачи перебора слов
-// Рекурсия избавляет от привязки к количеству циклов, набираемых руками
+// // // Общее решение задачи перебора слов
+// // Рекурсия избавляет от привязки к количеству циклов, набираемых руками
 
 // int n = 1;
 // void FindWords(string alphabet, char[] word, int length = 0)
@@ -186,10 +186,10 @@
 // FindWords(alphabet, new char[word]);
 
 
-// 00:20:00
+// // 00:20:00
 
-// Директория
-// Вызов даты и времени создания объекта, просмотр содержимого
+// // Директория
+// // Вызов даты и времени создания объекта, просмотр содержимого
 
 // string path = "C:/Users/Vitaliy/GeekBrains/13_Examples/Example001_HelloConsole"; // путь к папке
 // DirectoryInfo di = new DirectoryInfo(path);
@@ -203,9 +203,9 @@
 //     // с нужными нам свойствами, например, "Name" (имя)
 // }
 
-// 00:23:00
+// // 00:23:00
 
-// Рекурсия для перемещения по папкам
+// // Рекурсия для перемещения по папкам
 
 // void CatalogInfo(string path, string index = "")
 // {
@@ -228,8 +228,8 @@
 // CatalogInfo(path);
 
 
-// 00:27:00
-// "Ханойские башни"
+// // 00:27:00
+// // "Ханойские башни"
 
 // void Towers(string with = "1", string on = "3", string some = "2", int count = 4)
 // {
@@ -240,9 +240,9 @@
 // Towers();
 
 
-// 00:29:00
-// Обход структур
-// https://en.wikipedia.org/wiki/Tree_traversal - "Обход дерева" (статья)
+// // 00:29:00
+// // Обход структур
+// // https://en.wikipedia.org/wiki/Tree_traversal - "Обход дерева" (статья)
 
 // string emp = String.Empty;
 // string[] tree = {emp, "/", "*", "10", "-", "+", emp, emp, "4", "2", "1", "3"};
@@ -264,10 +264,10 @@
 // InOrderTraversal();
 
 
-// 00:38:26
+// // 00:38:26
 
-// Числа Фибоначчи
-// Нахождение последовательности двумя методами, рекурсивным и итерационным
+// // Числа Фибоначчи
+// // Нахождение последовательности двумя методами, рекурсивным и итерационным
 
 // decimal fRec = 0;
 // decimal fIte = 0;
@@ -318,10 +318,10 @@
 // System.Console.WriteLine((DateTime.Now - dt).TotalMilliseconds);
 
 
-// Ускорение рекурсии Фибоначи
-// Нужно написать алгоритм, который, для получения нового числа Фибоначи, 
-// не пересчитывает всё занаово, а использует только последние два найденных числа.
-// То, что ниже - чуть более длинная запись той же самой рекурсии, которая считает так же долго.
+// // Ускорение рекурсии Фибоначи
+// // Нужно написать алгоритм, который, для получения нового числа Фибоначи, 
+// // не пересчитывает всё занаово, а использует только последние два найденных числа.
+// // То, что ниже - чуть более длинная запись той же самой рекурсии, которая считает так же долго.
 
 // decimal fRec = 0;
 // decimal FibonacciRecFast(int n)
@@ -345,3 +345,48 @@
 //     fRec = 0;
 // }
 // System.Console.WriteLine((DateTime.Now - dt).TotalMilliseconds);
+
+
+// // 00:46:30
+
+// // Закрашивание прямоугольной области
+
+// int[,] pic = new int[10, 10];
+// for (int i = 0; i < 10; i++)
+// {
+//     pic[0, i] = 1;
+//     pic[i, 0] = 1;
+//     pic[i, 9] = 1;
+//     pic[9, i] = 1;
+// }
+
+// PrintImage(pic);
+// FillImage(1,1);
+// System.Console.WriteLine();
+// PrintImage(pic);
+
+// void PrintImage(int[,] image)
+// {
+//     for (int i = 0; i < image.GetLength(0); i++)
+//     {
+//         for (int j = 0; j < image.GetLength(1); j++)
+//         {
+//             // System.Console.WriteLine($"{image[i, j]} ");
+//             if (image[i, j] == 0) System.Console.Write($" ");
+//             else System.Console.Write($"+");
+//         }
+//         System.Console.WriteLine();
+//     }
+// }
+
+// void FillImage(int row, int col)
+// {
+//     if (pic[row, col] == 0)
+//     {
+//         pic[row, col] =1;
+//         FillImage(row - 1, col);
+//         FillImage(row, col - 1);
+//         FillImage(row + 1, col);
+//         FillImage(row, col + 1);
+//     }
+// }
