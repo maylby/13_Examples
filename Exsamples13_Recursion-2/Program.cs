@@ -251,11 +251,14 @@
 // {
 //     if (pos < tree.Length)
 //     {
-//         int left = 2 * pos;
-//         int rigth = 2 * pos + 1;
+//         int left = 2 * pos; // Левая часть равна "2i" (i = pos)
+//         int rigth = 2 * pos + 1; // Правая - "2i + 1" 
 //          if (left < tree.Length && !String.IsNullOrEmpty(tree[left])) InOrderTraversal(left);
-//         System.Console.Write(tree[pos]);
+//          // Если в левом поддереве не вышли за границы и элемент не является пустым ("emp"),
+//          // то программа выполняет рекурсивный обход текущей левой позиции
+//         System.Console.Write(tree[pos]); // вывод узла (значение - операция или число)
 //         if (rigth < tree.Length && !String.IsNullOrEmpty(tree[rigth])) InOrderTraversal(rigth);
+//          // аналогично для правого поддерева
 //     }
 // }
 // InOrderTraversal();
