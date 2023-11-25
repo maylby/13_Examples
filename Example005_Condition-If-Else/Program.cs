@@ -1,14 +1,21 @@
-﻿// Приветствие пользователя
+﻿// Знакомство с языками программирования (лекции)
+// Урок 1. Знакомство с языком программирования C#
+// https://gb.ru/lessons/362970#s951
 
-// Console.Write("Введите ваше имя: ");
-// string username = Console.ReadLine();
+// Приветствие пользователя
 
-// if(username.ToLower() == "маша") // "ToLower" - перевод символов в нижний регистр
-// {
-//     Console.WriteLine("Ура, это же МАША!");
-// }
-// else
-// {
-//     Console.WriteLine("Привет, ");
-//     Console.WriteLine(username);
-// }
+Console.Write("Введите ваше имя: ");
+string username = Console.ReadLine();
+
+if(username.ToLower() == "маша") // "ToLower" - перевод символов в нижний регистр
+{
+    Console.WriteLine("Ура, это же МАША!"); // Код не выводит текст приветствия, 
+    // т.к. внесены изменения в командную строку
+    // См. программу VSCommunity (урок 8 C# "Дополнительная лекция")
+    // Отменить изменения в VSCommunity
+}
+else
+{
+    Console.WriteLine("Привет, "); // приветствие не выводится на экран, причину см. выше 
+    Console.WriteLine(username);
+}
