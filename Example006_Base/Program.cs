@@ -10,7 +10,7 @@ int c = 36;
 int d = 8;
 int e = 4;
 
-int max = a;
+int max = a; // значение первого элемента
 if (a > max) max = a;
 if (b > max) max = b;
 if (c > max) max = c;
