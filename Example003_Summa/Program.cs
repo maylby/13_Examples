@@ -9,7 +9,16 @@
 // int - целые числа
 // double - вещественные числа (дроби)
 
+// Ручной ввод значений
 int numberA = 31;
 int numberB = 5;
 int result = numberA + numberB;
 System.Console.WriteLine(result);
+
+// Ввод значений с поимощью генератора случайных чисел "Random()"
+int numberA2 = new Random().Next(1, 10); // 1 2 3 ... 9
+System.Console.WriteLine(numberA2);
+int numberB2 = new Random().Next(1, 10);
+System.Console.WriteLine(numberB2);
+int result2 = numberA2 + numberB2;
+System.Console.WriteLine(result2);
