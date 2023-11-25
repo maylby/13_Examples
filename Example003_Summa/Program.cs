@@ -1,2 +1,15 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿// Знакомство с языками программирования (лекции)
+// Урок 1. Знакомство с языком программирования C#
+// https://gb.ru/lessons/362970#s951
+
+// В математике множество всех целых чисел обозначают буквой "Z".
+// Множество действительных чисел Обозначают буквой "R".
+
+// В C# свои обохначнения для различных типолв данных:
+// int - целые числа
+// double - вещественные числа (дроби)
+
+int numberA = 31;
+int numberB = 5;
+int result = numberA + numberB;
+System.Console.WriteLine(result);
