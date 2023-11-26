@@ -17,6 +17,7 @@ void Method2(string msg)
     System.Console.WriteLine(msg);
 }
 Method2("Текст сообщения"); // вызов метода
+Console.WriteLine(); // Пустая строка
 
 
 // Вид 2.1 Именованный метод (принрмает, но не возвращает)
@@ -60,3 +61,19 @@ string Method4(int count, string text)
 
 string res = Method4(5, "z");
 System.Console.WriteLine(res);
+
+
+// Цикл "for"
+
+string Method4For(int count, string text)
+{
+    string result = String.Empty;
+    for (int i = 0; i < count; i++)
+    {
+        result += text;
+    }
+    return result;
+}
+
+string res2 = Method4For(5, "z");
+System.Console.WriteLine(res2);
