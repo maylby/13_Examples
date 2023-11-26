@@ -77,3 +77,19 @@ string Method4For(int count, string text)
 
 string res2 = Method4For(5, "z");
 System.Console.WriteLine(res2);
+Console.WriteLine(); // Пустая строка
+
+
+// 00:18:40
+// Цикл в цикле
+
+// Таблица умножения
+
+for (int i = 2; i <= 10; i++)
+{
+    for (int j = 2; j <= 10; j++)
+    {
+        System.Console.WriteLine($"{i} x {j} = {i*j}");
+    }
+    Console.WriteLine(); // Пустая строка
+}
