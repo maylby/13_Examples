@@ -17,7 +17,6 @@ void Method2(string msg)
     System.Console.WriteLine(msg);
 }
 Method2("Текст сообщения"); // вызов метода
-Console.WriteLine();
 
 
 // Вид 2.1 Именованный метод (принрмает, но не возвращает)
@@ -30,10 +29,15 @@ void Method21(string msg, int count)
         i++;
     }
 }
-Method21("Текст", 4); // Неименолванные аргументы пишутся в строгом порядке
-System.Console.WriteLine();
+Method21("Текст", 4); // Неименованные аргументы пишутся в строгом порядке
 Method21(count: 4, msg: "новый текст"); // Именованные - в произвольном
-
+Console.WriteLine(); // Пустая строка - разрыв
 
 // Вид 3 Не принимающий, но возвращающий метод
-
+int Method3()
+{
+    return DateTime.Now.Year;
+}
+int year = Method3();
+System.Console.WriteLine(year);
+Console.WriteLine(); // Пустая строка
