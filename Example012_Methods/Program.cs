@@ -104,62 +104,105 @@
 // }
 
 
-// 0:20:30
+// // 0:20:30
 
-// Решение задач с помощью цикла "for"
+// // Решение задач с помощью цикла "for"
 
-// * Тренировочная задача
-// // Задание на форматирование текста
+// // * Тренировочная задача
+// // // Задание на форматирование текста
 
-// Дан текст. 
-// В тексте все пробелы нужно заменить чёрточками.
-// Маленькие буквы "к" заменить большими "К".
-// Большие "С" заменить маленькими "с".
+// // Дан текст. 
+// // В тексте все пробелы нужно заменить чёрточками.
+// // Маленькие буквы "к" заменить большими "К".
+// // Большие "С" заменить маленькими "с".
 
-// Ясна ли задача?
+// // Ясна ли задача?
 
-// Что значит дан текст?
-// Ввёл пользователь, считали из базы данных, скопировали с сервиса???
-// *В нашем случае, текст будет храниться, как отдельная строка.
-// Что значит чёрточками?
-// Тире, дефис, минус, нижнее подчёркивание, слеш (правый, левый, вертикальный)??? 
-// Какого алфавита буквы "к", "К", "с", "С" ???
+// // Что значит дан текст?
+// // Ввёл пользователь, считали из базы данных, скопировали с сервиса???
+// // *В нашем случае, текст будет храниться, как отдельная строка.
+// // Что значит чёрточками?
+// // Тире, дефис, минус, нижнее подчёркивание, слеш (правый, левый, вертикальный)??? 
+// // Какого алфавита буквы "к", "К", "с", "С" ???
 
-// Ясна ли задача?
+// // Ясна ли задача?
+// Console.WriteLine();
 
-string text = "- Я думаю, - сказал князь, улыбаясь, - что, "
-                + "ежели бы вас послали вместо нашего милого Винцегероде, "
-                + "вы бы взяли приступом согласие русского короля. "
-                + "Вы так красноречивы. Вы дадите мне чаю?";
+// string text = "- Я думаю, - сказал князь, улыбаясь, - что, "
+//                 + "ежели бы вас послали вместо нашего милого Винцегероде, "
+//                 + "вы бы взяли приступом согласие русского короля. "
+//                 + "Вы так красноречивы. Вы дадите мне чаю?";
 
-// 22:00
- 
-// string s = "qwerty"  (Подряд набранные знаки клавиатуры) 
-//             012      (индексы знаков строки, начиная с нуля)
-// s[3] // r            ("r" - 4-ый символ имеет индекс "3")
+// // string s = "qwerty"  (Подряд набранные знаки клавиатуры) 
+// //             012      (индексы знаков строки, начиная с нуля)
+// // s[3] // r            ("r" - 4-ый символ имеет индекс "3")
 
-string Replase(string text, char oldValue, char newValue)
+// string Replase(string text, char oldValue, char newValue)
+// {
+// 	string result = String.Empty;
+// 	int length = text.Length;
+// 	for (int i = 0; i < length; i++)
+// 	{
+// 		if(text[i] == oldValue) result = result + $"{newValue}";
+// 		else result = result + $"{text[i]}";
+// 	}
+// 	return result;
+// }
+
+// string newText = Replase(text, ' ', '|');
+// Console.WriteLine(newText);
+// Console.WriteLine();
+
+// newText = Replase(newText, 'к', 'К');
+// Console.WriteLine(newText);
+// Console.WriteLine();
+
+// newText = Replase(newText, 'с', '*');
+// Console.WriteLine(newText);
+// Console.WriteLine();
+
+
+// 28:30
+// Поиск минимального элемента массива
+
+// 1. Найти позицию минимального элемента в неотсотированной части массива 
+// 2. Произвести обмен этого значения со значением первой неотсортированной позиции
+// 3. Повторять пока есть неотсортированные элементы
+
+int[] arr = {3, 2, 1, 5, 4, 2, 8, 3, 7, 9, 1, 6};
+
+void PrintArray(int[] array)
 {
-	string result = String.Empty;
-	int length = text.Length;
-	for (int i = 0; i < length; i++)
+	int count = array.Length;
+
+	for (int i = 0; i < count; i++)
 	{
-		if(text[i] == oldValue) result = result + $"{newValue}";
-		else result = result + $"{text[i]}";
+		Console.Write($"{array[i]}, ");
 	}
-	return result;
+    System.Console.WriteLine();
 }
 
-string newText = Replase(text, ' ', '|');
-Console.WriteLine(newText);
-Console.WriteLine();
 
-newText = Replase(text, 'к', 'К');
-Console.WriteLine(newText);
-Console.WriteLine();
+void SelectionSort(int[] array)
+{
+	for (int i = 0; i < array.Length - 1; i++)
+	{
+		int minPosition = i;
 
-newText = Replase(text, 'с', '*');
-Console.WriteLine(newText);
-Console.WriteLine();
+		for (int j = i + 1; j < array.Length; j++)
+		{
+			if(array[j] > array[minPosition]) 
+            // Смена знака "<",">" меняет порядок сортировки на противоположный
+			{
+				minPosition = j;
+			}
+		}
+		int temporary = array[i];
+		array[i] = array[minPosition];
+		array[minPosition] = temporary;
+	}
+}
+PrintArray(arr);
+SelectionSort(arr);
 
-
+PrintArray(arr);
