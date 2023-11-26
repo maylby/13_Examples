@@ -1,2 +1,3 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿// Знакомство с языками программирования (лекции)
+// Урок 3. Функции: продолжение
+// https://gb.ru/lessons/362972
