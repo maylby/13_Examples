@@ -33,6 +33,7 @@ Method21("Текст", 4); // Неименованные аргументы пи
 Method21(count: 4, msg: "новый текст"); // Именованные - в произвольном
 Console.WriteLine(); // Пустая строка - разрыв
 
+
 // Вид 3 Не принимающий, но возвращающий метод
 int Method3()
 {
@@ -41,3 +42,21 @@ int Method3()
 int year = Method3();
 System.Console.WriteLine(year);
 Console.WriteLine(); // Пустая строка
+
+
+// Вид Принимающий и возвращающий метод
+string Method4(int count, string text)
+{
+    int i = 0;
+    string result = String.Empty; // "Empty" - пустая строка ("String") для записи "result"
+
+    while (i < count)
+    {
+        result += text;
+        i++;
+    }
+    return result;
+}
+
+string res = Method4(5, "z");
+System.Console.WriteLine(res);
