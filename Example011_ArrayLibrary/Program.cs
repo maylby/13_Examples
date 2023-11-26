@@ -4,32 +4,35 @@
 
 // 0:33:00
 
-// * Код Метода создания массива
+// * Метод создания массива
 
-// void FillArray(int[] collection) // "void" - метод, который ничего не возвращает
-// {
-//     int length = collection.Length;
-//     int index = 0;
-//     while (index < length)
-//     {
-//         collection[index] = new Random().Next(1, 10);
-//         // В агрумент "collection" на позицию "index" положить новое случайное целое число от 1 до 10
-//         index++; // В методе "void" не применим оператор "return"
-//     }
-// }
+void FillArray(int[] collection) // "void" - метод, который ничего не возвращает
+{
+    int length = collection.Length;
+    int index = 0;
+    while (index < length)
+    {
+        collection[index] = new Random().Next(1, 10);
+        // Смысл: В агрумент "collection" на позицию "index" 
+        // положить новое случайное целое число от 1 до 10
+        index++; // В методе "void" не применим оператор "return"
+    }
+}
 
-// // * Код вывода массива в печать (на экран)
+// // * Код Метода вывода массива в печать (на экран)
 
-// void PrintArray(int[] col)
-// {
-//     int count = col.Length;
-//     int position = 0;
-//     while (position < count)
-//     {
-//         Console.Write(col[position] + " ");
-//         position++;
-//     }
-// }
+void PrintArray(int[] col) // Метод принимает "[]" массив ("col") целых чисел ("int")
+{
+    int count = col.Length; // счёт ("count") равен длине массива ("col.Length")
+    int position = 0; // начальная позиция равна нулю ("0")
+    while (position < count) // Если позиция меньше "count", т.е. массив не пройден, то
+    {
+        // записываем в "Console.Write" значение текущего элемента ("col[position]")
+        Console.Write(col[position] + " "); 
+        position++; // переход к следующей позиции
+    }
+}
+
 
 // // * Метод поиска позиции заданного элемента в массиве
 
