@@ -17,6 +17,8 @@ void Method2(string msg)
     System.Console.WriteLine(msg);
 }
 Method2("Текст сообщения"); // вызов метода
+Console.WriteLine();
+
 
 // Вид 2.1 Именованный метод (принрмает, но не возвращает)
 void Method21(string msg, int count)
@@ -25,10 +27,13 @@ void Method21(string msg, int count)
     while (i < count)
     {
         System.Console.WriteLine(msg);
-        count++;
+        i++;
     }
 }
-Method2("Текст", 4) // вызов метода
+Method21("Текст", 4); // Неименолванные аргументы пишутся в строгом порядке
+System.Console.WriteLine();
+Method21(count: 4, msg: "новый текст"); // Именованные - в произвольном
 
 
+// Вид 3 Не принимающий, но возвращающий метод
 
