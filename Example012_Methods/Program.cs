@@ -103,7 +103,7 @@ System.Console.WriteLine(res2);
 Console.WriteLine(); // Пустая строка
 
 
-// 00:18:40
+// 00:17:40
 // Цикл в цикле
 
 // Таблица умножения
@@ -112,18 +112,20 @@ for (int i = 2; i <= 10; i++)
 {
     for (int j = 2; j <= 10; j++)
     {
-        System.Console.WriteLine($"{i} x {j} = {i*j}");
+        System.Console.WriteLine($"{i} x {j} = {i * j}");
     }
-    Console.WriteLine(); // Пустая строка
+    Console.WriteLine(); // Пустая строка (переход на новую строку по завершению 2-го цикла)
 }
 
 
-// 0:20:30
+// 00:20:30
 
 // Решение задач с помощью цикла "for"
 
 // * Тренировочная задача
 // // Задание на форматирование текста
+
+// Условие задания:
 
 // Дан текст. 
 // В тексте все пробелы нужно заменить чёрточками.
@@ -134,58 +136,63 @@ for (int i = 2; i <= 10; i++)
 
 // Что значит дан текст?
 // Ввёл пользователь, считали из базы данных, скопировали с сервиса???
-// *В нашем случае, текст будет храниться, как отдельная строка.
+// * В нашем случае, текст будет храниться, как отдельная строка.
 // Что значит чёрточками?
 // Тире, дефис, минус, нижнее подчёркивание, слеш (правый, левый, вертикальный)??? 
 // Какого алфавита буквы "к", "К", "с", "С" ???
 
 // Ясна ли задача?
+
 Console.WriteLine();
 
 string text = "- Я думаю, - сказал князь, улыбаясь, - что, "
                 + "ежели бы вас послали вместо нашего милого Винцегероде, "
                 + "вы бы взяли приступом согласие русского короля. "
-                + "Вы так красноречивы. Вы дадите мне чаю?";
+                + "Вы так красноречивы. Вы дадите мне чаю?";     
 
-// string s = "qwerty"  (Подряд набранные знаки клавиатуры) 
-//             012      (индексы знаков строки, начиная с нуля)
-// s[3] // r            ("r" - 4-ый символ имеет индекс "3")
+// string s = "qwerty" // набранные подряд знаки клавиатуры
+//             012 // индексы знаков строки, начиная с нуля
+// s[3] // r - выбранный по индексу элемент строки ("r" - 4-ый символ имеет индекс "3")
 
 string Replase(string text, char oldValue, char newValue)
+// "char oldValue" - символ, который меняем, "char newValue" - символ, на который меняем 
 {
-	string result = String.Empty;
+	string result = String.Empty; // "String.Empty" - пустая строка для внесения записи
 	int length = text.Length;
 	for (int i = 0; i < length; i++)
 	{
-		if(text[i] == oldValue) result = result + $"{newValue}";
-		else result = result + $"{text[i]}";
+		if(text[i] == oldValue) result += $"{newValue}";
+        // Если текущий символ "text[i]" совпал с "oldValue", то в "result" добавляем "newValue"
+		else result += $"{text[i]}"; // Если совпадений не найдено, возвращаем "text[i]"
 	}
 	return result;
 }
 
-string newText = Replase(text, ' ', '|');
+string newText = Replase(text, ' ', '|'); // меняем пробел на вертикальный слеш
+Console.WriteLine(newText);
+Console.WriteLine(); // пробел между результатами вызова метода
+
+newText = Replase(newText, 'к', 'К'); // меняем сторчную "к" на заглавную "К"
 Console.WriteLine(newText);
 Console.WriteLine();
 
-newText = Replase(newText, 'к', 'К');
-Console.WriteLine(newText);
-Console.WriteLine();
-
-newText = Replase(newText, 'с', '*');
+newText = Replase(newText, 'с', '*'); // строчную "с" меняем на "*" (изменил условие)
 Console.WriteLine(newText);
 Console.WriteLine();
 
 
-// 28:30
+// 00:28:30
 // Поиск минимального элемента массива
 
 // 1. Найти позицию минимального элемента в неотсотированной части массива 
 // 2. Произвести обмен этого значения со значением первой неотсортированной позиции
 // 3. Повторять пока есть неотсортированные элементы
 
-int[] arr = {3, 2, 1, 5, 4, 2, 8, 3, 7, 9, 1, 6};
+int[] arr = {3, 2, 1, 5, 4, 2, 8, 3, 7, 9, 1, 6}; // заданный массив
 
-void PrintArray(int[] array)
+// метод печати и вывода на экран
+
+void PrintArray(int[] array) // принимает заданный массив для печати
 {
 	int count = array.Length;
 
@@ -197,26 +204,32 @@ void PrintArray(int[] array)
 }
 
 
-void SelectionSort(int[] array)
-{
-	for (int i = 0; i < array.Length - 1; i++)
-	{
-		int minPosition = i;
+// 00:33:00
+// метод сортировки массива
 
-		for (int j = i + 1; j < array.Length; j++)
+void SelectionSort(int[] array) // принимает заданный массив для сортировки
+{
+	for (int i = 0; i < array.Length - 1; i++) // "array.Length" - длина массива
+    // "array.Length - 1" - вычитание 1, компенсирует прибавление 1 в цикле "j" (см. ниже)
+	{
+		int minPosition = i; // позиция минимального элемента, точка начала сортировки
+
+		for (int j = i + 1; j < array.Length; j++) 
+        // "i + 1" - следующий элемент массива
 		{
-			if(array[j] > array[minPosition]) 
+			if(array[j] > array[minPosition]) minPosition = j;
+            // Если текущий элемент ("array[j]") меньше минимального, 
+            // то "j" сохраняем, как минимальный ("minPosition")
             // Смена знака "<",">" меняет порядок сортировки на противоположный
-			{
-				minPosition = j;
-			}
+            // при "<" - сортировка от меньшего числа к большему
+            // при ">" - сортировка от большего числа к меньшему
 		}
-		int temporary = array[i];
-		array[i] = array[minPosition];
-		array[minPosition] = temporary;
+		int temporary = array[i]; // "array[i]" - рабочий элемент и временный ("temporary")
+		array[i] = array[minPosition]; // обмен местами рабочей и найденной позиций
+		array[minPosition] = temporary; // в минимальную позицию передаём значение "temporary"
 	}
 }
-PrintArray(arr);
-SelectionSort(arr);
+PrintArray(arr); // вывод на экран исходного массива
+SelectionSort(arr); // сортировка исходного массива методом "SelectionSort"
 
-PrintArray(arr);
+PrintArray(arr); // вывод на экран отсортированного массива
