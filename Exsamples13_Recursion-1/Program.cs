@@ -17,7 +17,7 @@
 //     }
 // }
 
-
+int[,] matrix = new int[3, 4];
 for (int i = 0; i < matrix.GetLength(0); i++)
 {
     for (int j = 0; j < matrix.GetLength(1); j++)
@@ -26,7 +26,6 @@ for (int i = 0; i < matrix.GetLength(0); i++)
     }
     Console.WriteLine();
 }
-System.Console.WriteLine();
 
 
 // Метод печати (вывод на экран)
@@ -42,8 +41,22 @@ void PrintArray(int[,] matr)
         Console.WriteLine();
     }
 }
+Console.WriteLine();
 
+// Метод заполнения таблицы
 
+void FillArray(int[,] matr)
+{
+    for (int i = 0; i < matr.GetLength(0); i++)
+    {
+        for (int j = 0; j < matr.GetLength(1); j++)
+        {
+            matr[i, j] = new Random().Next(1, 10); // [1; 10) - полуинтервал (?) от 1 до 10
+        }
+    }
+    Console.WriteLine();
+}
 
-int[,] matrix = new int[3, 4];
+PrintArray(matrix);
+FillArray(matrix);
 PrintArray(matrix);
