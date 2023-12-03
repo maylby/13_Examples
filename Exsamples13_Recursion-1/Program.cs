@@ -18,8 +18,6 @@
 // }
 
 
-int[,] matrix = new int[3, 4];
-
 for (int i = 0; i < matrix.GetLength(0); i++)
 {
     for (int j = 0; j < matrix.GetLength(1); j++)
@@ -30,6 +28,8 @@ for (int i = 0; i < matrix.GetLength(0); i++)
 }
 System.Console.WriteLine();
 
+
+// Метод печати (вывод на экран)
 
 void PrintArray(int[,] matr)
 {
@@ -43,4 +43,7 @@ void PrintArray(int[,] matr)
     }
 }
 
+
+
+int[,] matrix = new int[3, 4];
 PrintArray(matrix);
