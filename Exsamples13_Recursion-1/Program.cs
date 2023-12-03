@@ -71,7 +71,9 @@ PrintArray(matrix);
 // 00:19:30
 // Закрашиваем картинку
 
-int[,] pc = new int[,] // в уроке под этой строкой размещены данные рисунка
+int[,] pic = new int[,] // в уроке под этой строкой размещены данные рисунка
+
+// Метод печати
 
 void PrintImage(int[,] image)
 {
@@ -86,3 +88,22 @@ void PrintImage(int[,] image)
         Console.WriteLine();
     }
 }
+
+
+// Метод заполнения массива
+
+void FillImage(int row, int col)
+{
+    if (pic[row, col] == 0)
+    {
+        pic[row, col] = 1;
+        FillImage(row - 1, col); // Шаг вверх 
+        FillImage(row, col - 1); // Шаг влево
+        FillImage(row + 1, col); // Шаг вверх
+        FillImage(row, col + 1); // Шаг вправо
+    }
+}
+
+PrintImage(pic);
+FillImage(13, 13); // точка старта (произвольно выбранная)
+PrintImage(pic);
