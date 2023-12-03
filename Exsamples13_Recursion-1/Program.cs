@@ -67,3 +67,22 @@ Console.WriteLine();
 PrintArray(matrix);
 
 // 00:14:00
+
+// 00:19:30
+// Закрашиваем картинку
+
+int[,] pc = new int[,] // в уроке под этой строкой размещены данные рисунка
+
+void PrintImage(int[,] image)
+{
+    for (int i = 0; i < image.GetLength(0); i++)
+    {
+        for (int j = 0; j < image.GetLength(1); j++)
+        {
+            // Console.Write($"{image[i, j]} ");
+            if (image[i, j] == 0) Console.Write($" ");
+            else Console.Write($"+");
+        }
+        Console.WriteLine();
+    }
+}
