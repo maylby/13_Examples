@@ -1,2 +1,4 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿// Знакомство с языками программирования (лекции)
+// Урок 4. Рекурсия и двумерные массивы
+// https://gb.ru/lessons/362973
+
