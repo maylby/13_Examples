@@ -120,7 +120,7 @@
             // 3*2!
                 // 2*1!
 
-int Factorial(int n)
+double Factorial(int n) // заменил тип данных "int" на "double" для больших чисел
 {
     // 1! = 1
     // 0! = 1
