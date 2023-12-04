@@ -23,7 +23,7 @@ int screenHeightPosition = Console.WindowHeigth / 2; // Аналогично с 
 
 DrawText(caption, screenWidthPosition, screenHeightPosition); 
 // Передаём полученные значения методу для последующей обработки
-
+// Ниже, разделение кода на смысловые составляющие для удобства последующей работы
 DrawText(
     text: caption, 
     left: screenWidthPosition, 
