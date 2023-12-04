@@ -63,4 +63,16 @@ x2 = (-b + Math.Sgrt(d)) / (2 * a);
 Console.WriteLine($"x1 = {x1} x2 = {x2}");
 
 
+// 00:33:10
+// Отдельный метод вместо копипаста кода
+
+public Roots Solve(double a, double b, double c) 
+// Метод принимает три коэффициента и возвращает корни
+{
+    var d = b * b - 4 * a * c;
+    double x1 = (-b + Math.Sgrt(d)) / (2 * a);
+    double x2 = (-b + Math.Sgrt(d)) / (2 * a);
+    return new Roots {X1 = x1, X2 = x2};
+}
+// Написать метод и трижды его использовать, лучше, чем трижды копипастить код
 
