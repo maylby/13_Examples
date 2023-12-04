@@ -1,2 +1,3 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿// Знакомство с языками программирования (лекции)
+// Урок 6. Как не нужно писать код: принципы и антипаттерны
+// https://gb.ru/lessons/362975
