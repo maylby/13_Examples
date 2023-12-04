@@ -11,3 +11,19 @@ void DrawText(string text, int left, int top)
 }
 
 DrawText("Intensive C# Demo text", 629, 360); // Непонятные числа!
+
+
+// 00:26:56
+// Улучшение кода
+
+string caption = "Intensive C# Demo text";
+int screenWidthPosition = (Console.WindowWidth - caption.Length / 2);
+int screenHeightPosition = Console.WindowHeigth / 2;
+
+DrawText(caption, screenWidthPosition, screenHeightPosition);
+
+DrawText(
+    text: caption, 
+    left: screenWidthPosition, 
+    top: screenHeightPosition
+    );
