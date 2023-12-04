@@ -29,3 +29,10 @@ DrawText(
     left: screenWidthPosition, 
     top: screenHeightPosition
     ); // Логика кода стала более понятной
+
+
+// 00:29:00
+// Инициаизация строки (переменной)
+
+string label = ""; // не правильный способ инициализации
+string address = String.Empty; // инициализация в виде пустой строки ("String.Empty")
