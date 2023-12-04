@@ -18,12 +18,14 @@ DrawText("Intensive C# Demo text", 629, 360); // Непонятные числа
 
 string caption = "Intensive C# Demo text";
 int screenWidthPosition = (Console.WindowWidth - caption.Length / 2);
-int screenHeightPosition = Console.WindowHeigth / 2;
+// Смысл: Позиция по длине экрана равна разности длины экрана и длины строки делённой пополам 
+int screenHeightPosition = Console.WindowHeigth / 2; // Аналогично с позицией по высоте
 
-DrawText(caption, screenWidthPosition, screenHeightPosition);
+DrawText(caption, screenWidthPosition, screenHeightPosition); 
+// Передаём полученные значения методу для последующей обработки
 
 DrawText(
     text: caption, 
     left: screenWidthPosition, 
     top: screenHeightPosition
-    );
+    ); // Логика кода стала более понятной
