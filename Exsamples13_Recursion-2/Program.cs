@@ -190,47 +190,48 @@
 
 
 
-// 00:20:00
+// // 00:20:00
 
-// Директория
-// Вызов даты и времени создания объекта, просмотр содержимого
+// // Директория
+// // Вызов даты и времени создания объекта, просмотр содержимого
 
-string path = "C:/Users/Vitaliy/GeekBrains/13_Examples/Example001_HelloConsole"; // путь к папке
-DirectoryInfo di = new DirectoryInfo(path); // "DirectoryInfo" - класс обращения к папкам
-System.Console.WriteLine(di.CreationTime); // дата и время создания вызванной папки ("di")
-FileInfo[] fi = di.GetFiles(); // "FileInfo" - класс обращения к файлам выбранной папки
-// Конструкция "GetFiles" позволяет просмотреть (перебрать) файлы в указанной папке
+// string path = "C:/Users/Vitaliy/GeekBrains/13_Examples/Example001_HelloConsole"; // путь к папке
+// DirectoryInfo di = new DirectoryInfo(path); // "DirectoryInfo" - класс обращения к папкам
+// System.Console.WriteLine(di.CreationTime); // дата и время создания вызванной папки ("di")
+// FileInfo[] fi = di.GetFiles(); // "FileInfo" - класс обращения к файлам выбранной папки
+// // Конструкция "GetFiles" позволяет просмотреть (перебрать) файлы в указанной папке
 
-for (int i = 0; i < fi.Length; i++)
-{
-    System.Console.WriteLine(fi[i].Name); // <- вызов конкретного элемента массива ("fi[i]"), 
-    // с нужными нам свойствами, например, "Name" (имя)
-}
-
-
-// // 00:23:00
-
-// // Рекурсия для перемещения по папкам
-
-// void CatalogInfo(string path, string index = "")
+// for (int i = 0; i < fi.Length; i++)
 // {
-//     DirectoryInfo catalog = new DirectoryInfo(path);
-
-//     DirectoryInfo[] catalogs = catalog.GetDirectories();
-//     for (int i = 0; i < catalogs.Length; i++)
-//     {
-//         System.Console.WriteLine($"{index}{catalogs[i].Name}");
-//         CatalogInfo(catalogs[i].FullName, index + " ");
-//     }
-//     FileInfo[] files = catalog.GetFiles();
-
-//     for (int i = 0; i < files.Length; i++)
-//     {
-//         System.Console.WriteLine($"{index}{files[i].Name}");
-//     }
+//     System.Console.WriteLine(fi[i].Name); // <- вызов конкретного элемента массива ("fi[i]"), 
+//     // с нужными нам свойствами, например, "Name" (имя)
 // }
-// string path = @"/Users/Vitaliy/GeekBrains/13_Examples/Example001_HelloConsole"; 
-// CatalogInfo(path);
+
+
+// 00:23:00
+
+// Рекурсия для перемещения по папкам
+
+void CatalogInfo(string path, string index = "") // путь ("path") и отступ (index = "")
+{
+    DirectoryInfo catalog = new DirectoryInfo(path); 
+    // директория "catalog", в которую зашли по указанному пути "path" (перенесён вниз)
+
+    DirectoryInfo[] catalogs = catalog.GetDirectories(); // массив всех файлов папки
+    for (int i = 0; i < catalogs.Length; i++) // пробегаем по всему массиву
+    {
+        System.Console.WriteLine($"{index}{catalogs[i].Name}"); // вывод нинформации о каталоге
+        CatalogInfo(catalogs[i].FullName, index + " "); // рекурсивный просмотр полученых файлов 
+    }
+    FileInfo[] files = catalog.GetFiles(); // весь список файлов текущей директории (каталога)
+
+    for (int i = 0; i < files.Length; i++)
+    {
+        System.Console.WriteLine($"{index}{files[i].Name}"); // вывод результата на экран
+    }
+}
+string path = @"/Users/Vitaliy/GeekBrains/13_Examples/Example001_HelloConsole"; 
+CatalogInfo(path);
 
 
 
