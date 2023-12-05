@@ -155,57 +155,57 @@
 // }
 
 
-// 00:16:00
+// // 00:16:00
 
-// Общее решение задачи перебора слов
-// Рекурсия избавляет от привязки к количеству циклов, набираемых руками
+// // Общее решение задачи перебора слов
+// // Рекурсия избавляет от привязки к количеству циклов, набираемых руками
 
-int n = 1;
-void FindWords(string alphabet, char[] word, int length = 0)
-// "void FindWords" - метод, принимающий алфавит
-// "string alphabet" - строка, куда будет производится запись
-// "char[] word" - массив из букв, составляющих новое слово
-// "int length" - длина слова на текущей итерации
-{
-    if (length == word.Length) // Условие выхода: длина слова совпала с указанным значением
-    {
-        System.Console.WriteLine($"{n++} {new String(word)}"); return; // вывод слова
-    }
-    for (int i = 0; i < alphabet.Length; i++) // Цикл сбора нового слова, по заданным буквам
-    {
-        word[length] = alphabet[i];
-        FindWords(alphabet, word, length + 1);
-    }
-    System.Console.WriteLine();
-}
-
-FindWords("фыва", new char[3]); // Буквы и длина слова заданы заранее
-
-System.Console.Write("Input length: "); // ввод длины слова
-int word = Convert.ToInt32(Console.ReadLine());
-System.Console.Write("Input letters: "); // ввод набора букв, составлющих слово
-// Не выводит на экран кирилицу (???)
-string alph = Console.ReadLine(); 
-FindWords(alph, new char[word]);
-
-
-
-// // 00:20:00
-
-// // Директория
-// // Вызов даты и времени создания объекта, просмотр содержимого
-
-// string path = "C:/Users/Vitaliy/GeekBrains/13_Examples/Example001_HelloConsole"; // путь к папке
-// DirectoryInfo di = new DirectoryInfo(path);
-// System.Console.WriteLine(di.CreationTime);
-// FileInfo[] fi = di.GetFiles(); // при наведении курсора на "GetFiles" всплывает доп. информация
-// // Данная конструкция позволяет просмотреть файлы и папки в указанной папке
-
-// for (int i = 0; i < fi.Length; i++)
+// int n = 1;
+// void FindWords(string alphabet, char[] word, int length = 0)
+// // "void FindWords" - метод, принимающий алфавит
+// // "string alphabet" - строка, куда будет производится запись
+// // "char[] word" - массив из букв, составляющих новое слово
+// // "int length" - длина слова на текущей итерации
 // {
-//     System.Console.WriteLine(fi[i].Name); // <- вызов конкретного элемента массива ("fi[i]"), 
-//     // с нужными нам свойствами, например, "Name" (имя)
+//     if (length == word.Length) // Условие выхода: длина слова совпала с указанным значением
+//     {
+//         System.Console.WriteLine($"{n++} {new String(word)}"); return; // вывод слова
+//     }
+//     for (int i = 0; i < alphabet.Length; i++) // Цикл сбора нового слова, по заданным буквам
+//     {
+//         word[length] = alphabet[i];
+//         FindWords(alphabet, word, length + 1);
+//     }
+//     System.Console.WriteLine();
 // }
+
+// FindWords("фыва", new char[3]); // Буквы и длина слова заданы заранее
+
+// System.Console.Write("Input length: "); // ввод длины слова
+// int word = Convert.ToInt32(Console.ReadLine());
+// System.Console.Write("Input letters: "); // ввод набора букв, составлющих слово
+// // Не выводит на экран кирилицу (???)
+// string alph = Console.ReadLine(); 
+// FindWords(alph, new char[word]);
+
+
+
+// 00:20:00
+
+// Директория
+// Вызов даты и времени создания объекта, просмотр содержимого
+
+string path = "C:/Users/Vitaliy/GeekBrains/13_Examples/Example001_HelloConsole"; // путь к папке
+DirectoryInfo di = new DirectoryInfo(path);
+System.Console.WriteLine(di.CreationTime);
+FileInfo[] fi = di.GetFiles();
+// Конструкция "GetFiles" позволяет просмотреть файлы и папки в указанной папке
+
+for (int i = 0; i < fi.Length; i++)
+{
+    System.Console.WriteLine(fi[i].Name); // <- вызов конкретного элемента массива ("fi[i]"), 
+    // с нужными нам свойствами, например, "Name" (имя)
+}
 
 
 // // 00:23:00
