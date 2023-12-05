@@ -196,10 +196,10 @@
 // Вызов даты и времени создания объекта, просмотр содержимого
 
 string path = "C:/Users/Vitaliy/GeekBrains/13_Examples/Example001_HelloConsole"; // путь к папке
-DirectoryInfo di = new DirectoryInfo(path);
-System.Console.WriteLine(di.CreationTime);
-FileInfo[] fi = di.GetFiles();
-// Конструкция "GetFiles" позволяет просмотреть файлы и папки в указанной папке
+DirectoryInfo di = new DirectoryInfo(path); // "DirectoryInfo" - класс обращения к папкам
+System.Console.WriteLine(di.CreationTime); // дата и время создания вызванной папки ("di")
+FileInfo[] fi = di.GetFiles(); // "FileInfo" - класс обращения к файлам выбранной папки
+// Конструкция "GetFiles" позволяет просмотреть (перебрать) файлы в указанной папке
 
 for (int i = 0; i < fi.Length; i++)
 {
