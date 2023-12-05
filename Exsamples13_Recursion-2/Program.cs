@@ -208,30 +208,30 @@
 // }
 
 
-// 00:23:00
+// // 00:23:00
 
-// Рекурсия для перемещения по папкам
+// // Рекурсия для перемещения по папкам
 
-void CatalogInfo(string path, string index = "") // путь ("path") и отступ (index = "")
-{
-    DirectoryInfo catalog = new DirectoryInfo(path); 
-    // директория "catalog", в которую зашли по указанному пути "path" (перенесён вниз)
+// void CatalogInfo(string path, string index = "") // путь ("path") и отступ (index = "")
+// {
+//     DirectoryInfo catalog = new DirectoryInfo(path); 
+//     // директория "catalog", в которую зашли по указанному пути "path" (перенесён вниз)
 
-    DirectoryInfo[] catalogs = catalog.GetDirectories(); // массив всех файлов папки
-    for (int i = 0; i < catalogs.Length; i++) // пробегаем по всему массиву
-    {
-        System.Console.WriteLine($"{index}{catalogs[i].Name}"); // вывод нинформации о каталоге
-        CatalogInfo(catalogs[i].FullName, index + " "); // рекурсивный просмотр полученых файлов 
-    }
-    FileInfo[] files = catalog.GetFiles(); // весь список файлов текущей директории (каталога)
+//     DirectoryInfo[] catalogs = catalog.GetDirectories(); // массив всех файлов папки
+//     for (int i = 0; i < catalogs.Length; i++) // пробегаем по всему массиву
+//     {
+//         System.Console.WriteLine($"{index}{catalogs[i].Name}"); // вывод нинформации о каталоге
+//         CatalogInfo(catalogs[i].FullName, index + " "); // рекурсивный просмотр полученых файлов 
+//     }
+//     FileInfo[] files = catalog.GetFiles(); // весь список файлов текущей директории (каталога)
 
-    for (int i = 0; i < files.Length; i++)
-    {
-        System.Console.WriteLine($"{index}{files[i].Name}"); // вывод результата на экран
-    }
-}
-string path = @"/Users/Vitaliy/GeekBrains/13_Examples/Example001_HelloConsole"; 
-CatalogInfo(path);
+//     for (int i = 0; i < files.Length; i++)
+//     {
+//         System.Console.WriteLine($"{index}{files[i].Name}"); // вывод результата на экран
+//     }
+// }
+// string path = @"/Users/Vitaliy/GeekBrains/13_Examples/Example001_HelloConsole"; 
+// CatalogInfo(path);
 
 
 
@@ -248,28 +248,28 @@ CatalogInfo(path);
 
 
 
-// // 00:29:00
-// // Обход структур
-// // https://en.wikipedia.org/wiki/Tree_traversal - "Обход дерева" (статья)
+// 00:29:00
+// Обход структур
+// https://en.wikipedia.org/wiki/Tree_traversal - "Обход дерева" (статья)
 
-// string emp = String.Empty;
-// string[] tree = {emp, "/", "*", "10", "-", "+", emp, emp, "4", "2", "1", "3"};
-// //                0    1    2     3    4    5    6    7    8    9    10   11
-// void InOrderTraversal(int pos = 1)
-// {
-//     if (pos < tree.Length)
-//     {
-//         int left = 2 * pos; // Левая часть равна "2i" (i = pos)
-//         int rigth = 2 * pos + 1; // Правая - "2i + 1" 
-//          if (left < tree.Length && !String.IsNullOrEmpty(tree[left])) InOrderTraversal(left);
-//          // Если в левом поддереве не вышли за границы и элемент не является пустым ("emp"),
-//          // то программа выполняет рекурсивный обход текущей левой позиции
-//         System.Console.Write(tree[pos]); // вывод узла (значение - операция или число)
-//         if (rigth < tree.Length && !String.IsNullOrEmpty(tree[rigth])) InOrderTraversal(rigth);
-//          // аналогично для правого поддерева
-//     }
-// }
-// InOrderTraversal();
+string emp = String.Empty;
+string[] tree = {emp, "/", "*", "10", "-", "+", emp, emp, "4", "2", "1", "3"};
+//                0    1    2     3    4    5    6    7    8    9    10   11
+void InOrderTraversal(int pos = 1)
+{
+    if (pos < tree.Length)
+    {
+        int left = 2 * pos; // Левая часть равна "2i" (i = pos)
+        int rigth = 2 * pos + 1; // Правая - "2i + 1" 
+        if (left < tree.Length && !String.IsNullOrEmpty(tree[left])) InOrderTraversal(left);
+         // Если в левом поддереве не вышли за границы и элемент не является пустым ("emp"),
+         // то программа выполняет рекурсивный обход текущей левой позиции
+        Console.Write(tree[pos] + " "); // вывод узла (значение - операция или число)
+        if (rigth < tree.Length && !String.IsNullOrEmpty(tree[rigth])) InOrderTraversal(rigth);
+         // аналогично для правого поддерева
+    }
+}
+InOrderTraversal();
 
 
 // // 00:38:26
