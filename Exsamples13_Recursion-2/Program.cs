@@ -248,113 +248,114 @@
 
 
 
-// 00:29:00
-// Обход структур
-// https://en.wikipedia.org/wiki/Tree_traversal - "Обход дерева" (статья)
+// // 00:29:00
+// // Обход структур
+// // https://en.wikipedia.org/wiki/Tree_traversal - "Обход дерева" (статья)
 
-string emp = String.Empty;
-string[] tree = {emp, "/", "*", "10", "-", "+", emp, emp, "4", "2", "1", "3"};
-//                0    1    2     3    4    5    6    7    8    9    10   11
-void InOrderTraversal(int pos = 1)
+// string emp = String.Empty;
+// string[] tree = {emp, "/", "*", "10", "-", "+", emp, emp, "4", "2", "1", "3"};
+// //                0    1    2     3    4    5    6    7    8    9    10   11
+// void InOrderTraversal(int pos = 1)
+// {
+//     if (pos < tree.Length)
+//     {
+//         int left = 2 * pos; // Левая часть равна "2i" (i = pos)
+//         int rigth = 2 * pos + 1; // Правая - "2i + 1" 
+//         if (left < tree.Length && !String.IsNullOrEmpty(tree[left])) InOrderTraversal(left);
+//          // Если в левом поддереве не вышли за границы и элемент не является пустым ("emp"),
+//          // то программа выполняет рекурсивный обход текущей левой позиции
+//         Console.Write(tree[pos] + " "); // вывод узла (значение - операция или число)
+//         if (rigth < tree.Length && !String.IsNullOrEmpty(tree[rigth])) InOrderTraversal(rigth);
+//          // аналогично для правого поддерева
+//     }
+// }
+// InOrderTraversal();
+
+
+// 00:38:26
+
+// Числа Фибоначчи
+// Нахождение последовательности двумя методами, рекурсивным и итерационным
+
+decimal fRec = 0;
+decimal fIte = 0;
+
+decimal FibonacciRecursion(int n)
 {
-    if (pos < tree.Length)
+    fRec++;
+    return n == 0 || n == 1 ? 1 : FibonacciRecursion(n - 1) + FibonacciRecursion(n - 2);
+    // Краткая запись конструкции "if", "else", означает следующее:
+    // При "n" равном 0 или 1, возвращает 1 (единицу),
+    // в других случаях, возвращает выражение, указанное после двоеточия (:)
+}
+
+decimal FibonacciIteration(int n)
+{
+    fIte++;
+    decimal result = 1;
+    decimal f0 = 1;
+    decimal f1 = 1;
+    for (int i = 2; i <= n; i++)
     {
-        int left = 2 * pos; // Левая часть равна "2i" (i = pos)
-        int rigth = 2 * pos + 1; // Правая - "2i + 1" 
-        if (left < tree.Length && !String.IsNullOrEmpty(tree[left])) InOrderTraversal(left);
-         // Если в левом поддереве не вышли за границы и элемент не является пустым ("emp"),
-         // то программа выполняет рекурсивный обход текущей левой позиции
-        Console.Write(tree[pos] + " "); // вывод узла (значение - операция или число)
-        if (rigth < tree.Length && !String.IsNullOrEmpty(tree[rigth])) InOrderTraversal(rigth);
-         // аналогично для правого поддерева
+        result = f0 + f1;
+
+        f0 = f1;
+        f1 = result;
+        fIte++;
+    }
+    return result;
+}
+
+Console.ReadLine();
+
+DateTime dt = DateTime.Now;
+for (int n = 1; n < 40; n++)
+{
+    Console.WriteLine($"FibonacciIteration({n}) = {FibonacciIteration(n)} fIte = {fIte}");
+    fIte = 0;
+}
+System.Console.WriteLine((DateTime.Now - dt).TotalMilliseconds);
+
+System.Console.WriteLine();
+Console.ReadLine();
+
+dt = DateTime.Now;
+for (int n = 1; n < 40; n++)
+{
+    Console.WriteLine($"FibonacciRecursion({n}) = {FibonacciRecursion(n)} fRec = {fRec}");
+    fRec = 0;
+}
+System.Console.WriteLine((DateTime.Now - dt).TotalMilliseconds);
+
+
+// Ускорение рекурсии Фибоначи (Метод 3)
+// Нужно написать алгоритм, который, для получения нового числа Фибоначи, 
+// не пересчитывает всё занаово, а использует только последние два найденных числа.
+
+// То, что ниже - чуть более длинная запись той же самой рекурсии, которая считает так же долго.
+
+decimal fRec2 = 0;
+decimal FibonacciRecFast(int n)
+{
+    fRec2++;
+    if (n == 0 || n == 1) return 1;
+    else
+    {
+        return FibonacciRecFast(n - 1) + FibonacciRecFast(n - 2);
     }
 }
-InOrderTraversal();
 
+System.Console.WriteLine();
+Console.ReadLine();
 
-// // 00:38:26
-
-// // Числа Фибоначчи
-// // Нахождение последовательности двумя методами, рекурсивным и итерационным
-
-// decimal fRec = 0;
-// decimal fIte = 0;
-
-// decimal FibonacciRecursion(int n)
-// {
-//     fRec++;
-//     return n == 0 || n == 1 ? 1 : FibonacciRecursion(n - 1) + FibonacciRecursion(n - 2);
-//     // Краткая запись конструкции "if", "else", означает следующее:
-//     // При "n" равном 0 или 1, возвращает 1 (единицу),
-//     // в других случаях, возвращает выражение, указанное после двоеточия (:)
-// }
-
-// decimal FibonacciIteration(int n)
-// {
-//     fIte++;
-//     decimal result = 1;
-//     decimal f0 = 1;
-//     decimal f1 = 1;
-//     for (int i = 2; i <= n; i++)
-//     {
-//         result = f0 + f1;
-
-//         f0 = f1;
-//         f1 = result;
-//         fIte++;
-//     }
-//     return result;
-// }
-
-// Console.ReadLine();
-
-// DateTime dt = DateTime.Now;
-// for (int n = 1; n < 40; n++)
-// {
-//     Console.WriteLine($"FibonacciIteration({n}) = {FibonacciIteration(n)} fIte = {fIte}");
-//     fIte = 0;
-// }
-// System.Console.WriteLine((DateTime.Now - dt).TotalMilliseconds);
-
-// System.Console.WriteLine();
-// Console.ReadLine();
-
-// dt = DateTime.Now;
-// for (int n = 1; n < 40; n++)
-// {
-//     Console.WriteLine($"FibonacciRecursion({n}) = {FibonacciRecursion(n)} fRec = {fRec}");
-//     fRec = 0;
-// }
-// System.Console.WriteLine((DateTime.Now - dt).TotalMilliseconds);
-
-
-// // Ускорение рекурсии Фибоначи (Метод 3)
-// // Нужно написать алгоритм, который, для получения нового числа Фибоначи, 
-// // не пересчитывает всё занаово, а использует только последние два найденных числа.
-// // То, что ниже - чуть более длинная запись той же самой рекурсии, которая считает так же долго.
-
-// decimal fRec = 0;
-// decimal FibonacciRecFast(int n)
-// {
-//     fRec++;
-//     if (n == 0 || n == 1) return 1;
-//     else
-//     {
-//         return FibonacciRecFast(n - 1) + FibonacciRecFast(n - 2);
-//     }
-// }
-
-// System.Console.WriteLine();
-// Console.ReadLine();
-
-// DateTime dt = DateTime.Now; // Счётчик времени работы метода
-// for (int n = 0; n < 40; n++)
-// {
-//     Console.WriteLine($"FibonacciRecursion2({n}) = {FibonacciRecFast(n)} fRec = {fRec}");
-//     fRec = 0;
-// }
-// System.Console.WriteLine((DateTime.Now - dt).TotalMilliseconds); 
-// // вывод разности начала и конца работы программы
+dt = DateTime.Now; // Счётчик времени работы метода
+for (int n = 0; n < 40; n++)
+{
+    Console.WriteLine($"FibonacciRecursionFast({n}) = {FibonacciRecFast(n)} fRec2 = {fRec2}");
+    fRec2 = 0;
+}
+System.Console.WriteLine((DateTime.Now - dt).TotalMilliseconds); 
+// вывод разности начала и конца работы программы
 
 
 // // 00:46:30
