@@ -179,13 +179,14 @@ void FindWords(string alphabet, char[] word, int length = 0)
     System.Console.WriteLine();
 }
 
-FindWords("abcd", new char[3]); // Буквы и длина слова заданы заранее
+FindWords("фыва", new char[3]); // Буквы и длина слова заданы заранее
 
-// System.Console.Write("Input length: "); // ввод длины слова
-// int word = Convert.ToInt32(Console.ReadLine());
-// System.Console.Write("Input letters: "); // ввода набора букв, составлющих слово
-// string alphabet = Console.ReadLine(); 
-// FindWords(alphabet, new char[word]);
+System.Console.Write("Input length: "); // ввод длины слова
+int word = Convert.ToInt32(Console.ReadLine());
+System.Console.Write("Input letters: "); // ввод набора букв, составлющих слово
+// Не выводит на экран кирилицу (???)
+string alph = Console.ReadLine(); 
+FindWords(alph, new char[word]);
 
 
 
